@@ -19,7 +19,6 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const passport = require('passport');
 const findOrCreate = require('mongoose-findorcreate');
 
 const bcrypt = require('bcrypt');
