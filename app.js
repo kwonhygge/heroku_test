@@ -16,6 +16,7 @@ app.use(express.static('public'));
 
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+const passport = require('passport');
 
 app.get('/', function (req, res) {
   res.render('home');
