@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 app.get('/', function (req, res) {
   res.render('home');
