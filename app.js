@@ -15,6 +15,14 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
   res.render('home');
 });
-app.listen(process.env.PORT || 3000, function () {
+app.get('/create', function (req, res) {
+  res.render('create');
+});
+
+let port = process.env.PORT;
+if (port == null || port == '') {
+  port = 3000;
+}
+app.listen(port, function () {
   console.log('listening on port 3000');
 });
