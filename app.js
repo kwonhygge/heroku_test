@@ -21,7 +21,6 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const findOrCreate = require('mongoose-findorcreate');
 
-const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 app.get('/', function (req, res) {
