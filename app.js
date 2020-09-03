@@ -15,8 +15,17 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
   res.render('home');
 });
+
 app.get('/create', function (req, res) {
   res.render('create');
+});
+app.post('/create', function (req, res) {
+  console.log(req.body);
+  res.redirect('/mainbox');
+});
+
+app.get('/mainbox', function (req, res) {
+  res.render('mainbox');
 });
 
 let port = process.env.PORT;
