@@ -8,6 +8,8 @@ const ejs = require('ejs');
 //app이라는 const가 express를 실행
 const app = express();
 
+require('dotenv').config();
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
