@@ -9,14 +9,21 @@ const ejs = require('ejs');
 const app = express();
 
 require('dotenv').config();
-
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+const session = require('express-session');
 const passport = require('passport');
+const findOrCreate = require('mongoose-findorcreate');
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 app.get('/', function (req, res) {
   res.render('home');
