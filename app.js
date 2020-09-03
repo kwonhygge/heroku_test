@@ -23,6 +23,16 @@ const findOrCreate = require('mongoose-findorcreate');
 
 const saltRounds = 10;
 
+mongoose.connect(
+  `mongodb+srv://admin-dory:${process.env.MONGO_PASSWORD}@cluster0.b1gte.mongodb.net/objectiveDB`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
+
 app.get('/', function (req, res) {
   res.render('home');
 });
