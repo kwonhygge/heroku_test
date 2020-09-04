@@ -63,7 +63,7 @@ app.use(
 const User = new mongoose.model('User', userSchema);
 
 app.get('/', function (req, res) {
-  res.render('home');
+  res.render('home', { test: process.env.TEST });
 });
 
 app.get('/login', function (req, res) {
