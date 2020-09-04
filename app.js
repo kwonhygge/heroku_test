@@ -33,6 +33,40 @@ mongoose.connect(
   }
 );
 
+//session
+app.use(
+  session({
+    secret: 'Our little secret.',
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+const userSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+  googleId: String,
+  secret: String,
+  mainBox: {
+    objective: String,
+    themeColor: String,
+    plans: [
+      {
+        type: Object,
+      },
+    ],
+  },
+});
+
+const User = new mongoose.model('User', userSchema);
+passport.use(User.createStrategy());
+
+//변수들
+let themeColor = 'white';
+let userId = '';
+
 app.get('/', function (req, res) {
   res.render('home');
 });
