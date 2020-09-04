@@ -6,7 +6,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  `mongodb+srv://admin-dory:${process.env.MONGO_PASSWORD}@cluster0.b1gte.mongodb.net/objectiveDB`,
+  `mongodb+srv://admin-dory:${process.env.MONGO_PASS}@cluster0.b1gte.mongodb.net/objectiveDB`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -63,7 +63,7 @@ app.use(
 const User = new mongoose.model('User', userSchema);
 
 app.get('/', function (req, res) {
-  res.render('home', { test: process.env.TEST });
+  res.render('home');
 });
 
 app.get('/login', function (req, res) {
